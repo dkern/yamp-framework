@@ -6,7 +6,7 @@ class config
 	 * will overwrite yamp::setDebugMode(false) on true
 	 * @var boolean
 	 */
-	const debug = true;
+	const debug = false;
 
 	/**
 	 * base system url

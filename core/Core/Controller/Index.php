@@ -49,15 +49,15 @@ class Yamp_Core_Controller_Index extends Yamp_Core_Controller_Abstract
 		$html .= "      <h2>Thank you very mutch for giving YAMP a try.</h2>\n";
 		$html .= "      <h3>Getting Started</h3>\n";
 		$html .= "      <p>\n";
-		$html .= "        If you're new to YAMP you can install the <a href=\"#\">example module</a> to get into the code and see the framework working.\n";
-		$html .= "        For further details take a look to the <a href=\"#\">official documentation</a>.\n";
+		$html .= "        If you're new to YAMP you can install the <a href=\"http://github.com/eisbehr-/yamp-framework\">example module</a> to get into the code and see the framework working.\n";
+		$html .= "        For further details take a look to the <a href=\"http://github.com/eisbehr-/yamp-framework/wiki\">official documentation</a>.\n";
 		$html .= "      </p>\n";
 		$html .= "      <h3>Links</h3>\n";
 		$html .= "      <ul>\n";
-		$html .= "        <li><a href=\"#\">YAMP Homepage</a></li>\n";
-		$html .= "        <li><a href=\"#\">YAMP Documentation</a></li>\n";
-		$html .= "        <li><a href=\"#\">GitHub Repo</a></li>\n";
-		$html .= "        <li><a href=\"#\">Report a Bug</a></li>\n";
+		$html .= "        <li><a href=\"http://github.com/eisbehr-/yamp-framework\">YAMP Homepage</a></li>\n";
+		$html .= "        <li><a href=\"http://github.com/eisbehr-/yamp-framework/wiki\">YAMP Documentation</a></li>\n";
+		$html .= "        <li><a href=\"http://github.com/eisbehr-/yamp-framework\">GitHub Repo</a></li>\n";
+		$html .= "        <li><a href=\"http://github.com/eisbehr-/yamp-framework/issues\">Report a Bug</a></li>\n";
 		$html .= "      </ul>\n";
 		
 		// add content
