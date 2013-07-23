@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php echo $this->getChild("head"); ?>
+</head>
+
+<body>
+  <div id="container">
+<?php echo $this->getChild("header"); ?>
+    <div id="content">
+      <h1>Error <?php echo $this->getStatusCode(); ?></h1>
+      <h2><?php echo $this->getErrorMessage(); ?></h2>
+      <p>&nbsp;</p>
+      <p>return to <a href="<?php echo $this->getBaseUrl(); ?>" target="_self">main page</a></p>
+    </div>
+<?php echo $this->getChild("footer"); ?>
+  </div>
+</body>
+</html>

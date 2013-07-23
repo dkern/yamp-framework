@@ -1,0 +1,20 @@
+html, *                   { margin: 0; padding: 0; font-size: 12px; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; }
+body                      { background: #6a6061 url("../images/header.png") repeat-x; }
+div.clear                 { clear:  both; }
+div#container             { width: 800px; display: block; margin: auto; }
+div#header                { width: 800px; height: 128px; display: block; margin: auto; }
+div#header a              { width: 270px; height: 128px; display: block; background: transparent url("../images/logo.png") no-repeat; }
+div#box                   { width: 760px; height: 20px; margin: -35px auto 0 auto; background: transparent url("../images/box_top.png") no-repeat; }
+div#content               { width: 700px; margin: auto; background: transparent url("../images/box_bg.png") repeat-y; padding: 5px 30px; }
+div#content h1            { font-size: 15px; color: #6a6061; }
+div#content h2            { font-size: 12px; color: #6a6061; margin-top: -5px; font-weight: normal; }
+div#content h3            { font-size: 13px; margin: 30px 0 5px 0; }
+div#content p             { text-align: justify; }
+div#content a             { color: #000; font-weight: bold; text-decoration: none; }
+div#content a:hover       { text-decoration: underline; }
+div#content ul            { list-style: disc inside; color: #6a6061; }
+div#content ul a          { font-weight: normal; }
+div#footer                { width: 760px; margin: auto; background: transparent url("../images/box_bottom.png") no-repeat; padding-top: 20px; text-align: center; }
+div#footer span           { color: #b3a2a4; font-size: 10px; }
+div#footer span a         { color: #b3a2a4; font-size: 10px; font-weight: bold; text-decoration: none; }
+div#footer span a:hover   { color: #b3a2a4; text-decoration: underline; }

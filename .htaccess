@@ -1,0 +1,32 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# router -> controller -> action -> paramter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([0-9A-Z]+)/([0-9A-Z]+)/([0-9A-Z]+)/(.*)$ index.php?__router=$1&__controller=$2&__action=$3&__parameter=$4 [NC,L]
+
+# router -> controller -> action
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([0-9A-Z]+)/([0-9A-Z]+)/([0-9A-Z]+)/?$ index.php?__router=$1&__controller=$2&__action=$3 [NC,L]
+
+# router -> controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([0-9A-Z]+)/([0-9A-Z]+)/?$ index.php?__router=$1&__controller=$2 [NC,L]
+
+# router only
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([0-9A-Z]+)/?$ index.php?__router=$1 [NC,L]
+
+# everytring else
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteRule .* index.php [NC,L]

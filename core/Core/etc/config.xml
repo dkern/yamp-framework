@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<name>Yamp_Core</name>
+	<alias>core</alias>
+    <routers>
+        <router>core</router>
+    </routers>
+</config>

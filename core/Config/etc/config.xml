@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<name>Yamp_Config</name>
+	<alias>config</alias>
+    <setup>
+        <enabled>true</enabled>
+        <version>1.0</version>
+    </setup>
+</config>
