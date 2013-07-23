@@ -46,7 +46,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 		
 		// loop models
 		$loaded = array();
-		$folder = yamp::getBaseDir("yamp");
+		$folder = yamp::getBaseDir("core");
 		
 		$dir = dir($folder);
 		

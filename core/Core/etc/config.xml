@@ -3,6 +3,6 @@
 	<name>Yamp_Core</name>
 	<alias>core</alias>
     <routers>
-        <router>core</router>
+        <router>yamp</router>
     </routers>
 </config>

@@ -518,7 +518,7 @@ final class Yamp extends YampRegistry
 		Profiler::start("Yamp::startRouting");
 
 		$request = self::getSingleton("core/request");
-
+		
 		if( ($alias = $request->getRouterModule()) !== false )
 		{
 			$call = $alias . "/" . $request->getControllerName();
@@ -828,7 +828,7 @@ final class Yamp extends YampRegistry
 		
 		$request = self::getSingleton("core/request");
 		
-		$router = "core";
+		$router = Yamp_Core_Model_Request::DEFAULT_ROUTER;
 		$controller = "index";
 		$action = "index";
 		

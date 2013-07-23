@@ -108,10 +108,15 @@ class Yamp_Core_Controller_Error extends Yamp_Core_Controller_Abstract
 	 */
 	public function defaultAction()
 	{
+		// set content information
 		$root = $this->getLayout()->getBlock("root");
-		
 		$root->setStatusCode("unkown");
 		$root->setErrorMessage("an error occured");
+
+		// set title
+		$this->getLayout()->getBlock("head")->setTitle("unkown - an error occured");
+
+		$this->getLayout()->render();
 	}
 
 	/**

@@ -2,6 +2,12 @@
 class Yamp_Core_Model_Request
 {
 	/**
+	 * default router name
+	 * @var string
+	 */
+	const DEFAULT_ROUTER = "yamp";
+	
+	/**
 	 * name of the router GET parameter
 	 * @var string
 	 */
@@ -295,7 +301,7 @@ class Yamp_Core_Model_Request
 		
 		if( !$router )
 		{
-			return "core";
+			return self::DEFAULT_ROUTER;
 		}
 		
 		return $router;

@@ -17,6 +17,10 @@ foreach( $coreFiles as $name => $file )
 	require_once(YAMP_ROOT . $file);
 }
 
+// check base url
+if( config::baseUrl == "/" )
+	die("YAMP Framework: please change your the config::baseUrl in config.php!");
+
 // may enable debug mode
 // yamp::setDebugMode(true);
 
