@@ -279,21 +279,21 @@ class mysqlClass
 		if( is_bool($verbose) ) $this->verbose = $verbose;
 
 		// try to find config class
-		if( class_exists("mysqlconfig") )
+		if( class_exists("config") )
 		{
-			$class = new ReflectionClass("mysqlconfig");
+			$class = new ReflectionClass("config");
 
 			// get possible configuration from config class
-			if( $class->hasConstant("hostname") )   $this->hostname   = mysqlconfig::hostname;
-			if( $class->hasConstant("port") )       $this->port       = mysqlconfig::port;
-			if( $class->hasConstant("username") )   $this->username   = mysqlconfig::username;
-			if( $class->hasConstant("password") )   $this->password   = mysqlconfig::password;
-			if( $class->hasConstant("database") )   $this->database   = mysqlconfig::database;
-			if( $class->hasConstant("prefix") )     $this->prefix     = mysqlconfig::prefix;
-			if( $class->hasConstant("persistent") ) $this->persistent = mysqlconfig::persistent;
-			if( $class->hasConstant("mysqli") )     $this->mysqli     = mysqlconfig::mysqli;
-			if( $class->hasConstant("verbose") )    $this->verbose    = mysqlconfig::verbose;
-			if( $class->hasConstant("format") )     $this->format     = mysqlconfig::format;
+			if( $class->hasConstant("hostname") )   $this->hostname   = config::hostname;
+			if( $class->hasConstant("port") )       $this->port       = config::port;
+			if( $class->hasConstant("username") )   $this->username   = config::username;
+			if( $class->hasConstant("password") )   $this->password   = config::password;
+			if( $class->hasConstant("database") )   $this->database   = config::database;
+			if( $class->hasConstant("prefix") )     $this->prefix     = config::prefix;
+			if( $class->hasConstant("persistent") ) $this->persistent = config::persistent;
+			if( $class->hasConstant("mysqli") )     $this->mysqli     = config::mysqli;
+			if( $class->hasConstant("verbose") )    $this->verbose    = config::verbose;
+			if( $class->hasConstant("format") )     $this->format     = config::format;
 		}
 
 		// create default data replacement

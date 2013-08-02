@@ -64,7 +64,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 		Profiler::start("Yamp_Session_Model_Handler_Database::read");
 		
 		$result = $this->sql->select("session_data")
-							->from("{DB}.{PRE}" . tables::coreSession)
+							->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreSession)
 							->where("session_id = ?", $sessionId)
 							->limit(1)
 							->run()
@@ -93,7 +93,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 		{
 			$data = base64_encode($sessionData);
 			
-			$result = $this->sql->insert("{DB}.{PRE}" . tables::coreSession)
+			$result = $this->sql->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreSession)
 								->fields("session_id", "session_time", "session_data")
 								->values($sessionId, time(), $data)
 								->onDuplicate("session_time = VALUES(session_time), session_data = VALUES(session_data)")
@@ -117,7 +117,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 	{
 		Profiler::start("Yamp_Session_Model_Handler_Database::destroy");
 		
-		$result = $this->sql->delete("{DB}.{PRE}" . tables::coreSession)
+		$result = $this->sql->delete("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreSession)
 							->where("session_id = ?", $sessionId)
 							->limit(1)
 							->run(true);
@@ -139,7 +139,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 	{
 		Profiler::start("Yamp_Session_Model_Handler_Database::gc");
 		
-		$result = $this->sql->delete("{DB}.{PRE}" . tables::coreSession)
+		$result = $this->sql->delete("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreSession)
 							->where("session_time + " . $lifetime . " <= ?", time())
 							->run(true);
 

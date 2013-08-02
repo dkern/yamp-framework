@@ -38,7 +38,7 @@ class Yamp_Config_Helper_Data extends Yamp_Core_Model_Object
 		{
 			$result = $this->_getConnection()
 						   ->select("value")
-						   ->from("{DB}.{PRE}" . tables::coreConfigData)
+						   ->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreConfigData)
 						   ->where("code = ?", $code)
 						   ->limit(1)
 						   ->run()
@@ -70,7 +70,7 @@ class Yamp_Config_Helper_Data extends Yamp_Core_Model_Object
 		if( $db->isDatabaseAvailable() )
 		{
 			$result = $this->_getConnection()
-						   ->insert("{DB}.{PRE}" . tables::coreConfigData)
+						   ->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreConfigData)
 						   ->fields("code", "value")
 						   ->values($code, $value)
 						   ->onDuplicate("value = VALUES(value)")

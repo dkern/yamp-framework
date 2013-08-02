@@ -28,7 +28,7 @@ class Yamp_Session_Model_Handler extends Yamp_Core_Helper_Abstract
 		// check if database handler is available
 		if( !config::sessionForceFile && $this->getHelper("database")->databaseAvailable() )
 		{
-			if( $this->getHelper("database")->tableExists(tables::coreSession) )
+			if( $this->getHelper("database")->tableExists(Yamp_Core_Helper_Tables::coreSession) )
 			{
 				$this->sessionHandler = $this->getModel("session/handler_database");
 				return Profiler::stop("Yamp_Session_Model_Handler::open", $this->sessionHandler->open($savePath, $sessionName));

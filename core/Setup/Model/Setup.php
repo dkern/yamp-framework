@@ -23,13 +23,13 @@ class Yamp_Setup_Model_Setup extends Yamp_Core_Model_Abstract
 			$config = yamp::registry("_module/setup");
 			
 			// check if setup system is installed allready
-			if( $this->getHelper("database")->tableExists(tables::coreResource) )
+			if( $this->getHelper("database")->tableExists(Yamp_Core_Helper_Tables::coreResource) )
 			{
 				// if setup is enabled
 				if( isset($config["setup"]["enabled"]) && $config["setup"]["enabled"] )
 				{
 					$result = $this->sql->select("setup_version")
-										->from("{DB}.{PRE}" . tables::coreResource)
+										->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 										->where("name = ?", $config["name"])
 										->limit(1)
 										->run()
@@ -50,7 +50,7 @@ class Yamp_Setup_Model_Setup extends Yamp_Core_Model_Abstract
 			
 			if( $this->installModule($config) )
 			{
-				$this->sql->insert("{DB}.{PRE}" . tables::coreResource)
+				$this->sql->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 						  ->fields("name", "setup_version")
 					      ->values($config["name"], $config["setup"]["version"])
 					      ->onDuplicate("setup_version = VALUES(setup_version)")
@@ -112,7 +112,7 @@ class Yamp_Setup_Model_Setup extends Yamp_Core_Model_Abstract
 						if( $check )
 						{
 							$actual = $version;
-							$this->sql->insert("{DB}.{PRE}" . tables::coreResource)
+							$this->sql->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 								      ->fields("name", "setup_version", "installed_version")
 								      ->values($data["name"], $version, $version)
 								      ->onDuplicate("setup_version = VALUES(setup_version), installed_version = VALUES(installed_version)")

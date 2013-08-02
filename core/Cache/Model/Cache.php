@@ -37,7 +37,7 @@ class Yamp_Cache_Model_Cache extends Yamp_Core_Model_Abstract
 		// check if database handler is available
 		if( !config::cacheForceFile && $this->getHelper("database")->databaseAvailable() )
 		{
-			if( $this->getHelper("database")->tableExists(tables::coreCache) )
+			if( $this->getHelper("database")->tableExists(Yamp_Core_Helper_Tables::coreCache) )
 			{
 				$this->handler = $this->getModel("cache/database");
 				

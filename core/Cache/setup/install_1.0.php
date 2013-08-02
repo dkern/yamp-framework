@@ -2,8 +2,8 @@
 $installer = $this->getInstaller();
 
 // create config table
-$installer->run("DROP TABLE IF EXISTS " . tables::coreCache);
-$installer->run("CREATE TABLE IF NOT EXISTS " . tables::coreCache . " (
+$installer->run("DROP TABLE IF EXISTS " . Yamp_Core_Helper_Tables::coreCache);
+$installer->run("CREATE TABLE IF NOT EXISTS " . Yamp_Core_Helper_Tables::coreCache . " (
 				`cache_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 				`cache_key` varchar(255) NOT NULL,
 				`ident` varchar(255) NOT NULL,

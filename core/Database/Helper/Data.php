@@ -42,7 +42,7 @@ class Yamp_Database_Helper_Data extends Yamp_Core_Helper_Abstract
 		}
 		
 		// check if available
-		if( mysqlconfig::useDatabase && $this->_getConnection()->isConnected() )
+		if( config::useDatabase && $this->_getConnection()->isConnected() )
 		{
 			$this->databaseAvailable = true;
 			return Profiler::stop("Yamp_Database_Helper_Data::databaseAvailable", true);
@@ -62,7 +62,7 @@ class Yamp_Database_Helper_Data extends Yamp_Core_Helper_Abstract
 		Profiler::start("Yamp_Database_Helper_Data::tableExists");
 		
 		// if database is not used
-		if( !mysqlconfig::useDatabase )
+		if( !config::useDatabase )
 		{
 			return Profiler::stop("Yamp_Database_Helper_Data::tableExists", false);
 		}
@@ -86,7 +86,7 @@ class Yamp_Database_Helper_Data extends Yamp_Core_Helper_Abstract
 		
 		$result = $sql->select("table_name")
 					  ->from("information_schema.tables")
-					  ->where("table_schema = ?", mysqlconfig::database)
+					  ->where("table_schema = ?", config::database)
 					  ->where("table_name = ?", $table)
 					  ->run()
 					  ->fetch();

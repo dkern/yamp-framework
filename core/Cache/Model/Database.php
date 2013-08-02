@@ -46,14 +46,14 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 		
 		// select existing cache entry
 		$result = $this->sql->select()
-							->from("{DB}.{PRE}" . tables::coreCache)
+							->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreCache)
 							->where("cache_key = ?", $key)
 							->where("ident = ?", $identifier)
 							->limit(1)
 							->run()
 							->fetch();
 		
-		$query = $this->sql->insert("{DB}.{PRE}" . tables::coreCache)
+		$query = $this->sql->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreCache)
 						   ->ignore()
 						   ->fields("cache_key", "ident", "timestamp", "lifetime", "content")
 						   ->values($key, $identifier, time(), $lifetime, $serialized);
@@ -110,7 +110,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 		
 		// select cache entry
 		$result = $this->sql->select()
-							->from("{DB}.{PRE}" . tables::coreCache)
+							->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreCache)
 							->where("cache_key = ?", $key)
 							->where("ident = ?", $identifier)
 							->run()
@@ -143,7 +143,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 	{
 		Profiler::start("Yamp_Cache_Model_Database::removeCache");
 		
-		$query = $this->sql->delete("{DB}.{PRE}" . tables::coreCache)
+		$query = $this->sql->delete("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreCache)
 						   ->where("cache_key = ?", $key);
 		
 		if( !is_null($identifier) )
@@ -183,7 +183,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 	{
 		Profiler::start("Yamp_Cache_Model_Database::cleanup");
 
-		$query = $this->sql->delete("{DB}.{PRE}" . tables::coreCache)
+		$query = $this->sql->delete("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreCache)
 						   ->where(time() . " - timestamp > lifetime");
 		
 		if( $query->run(true) )

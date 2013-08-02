@@ -41,7 +41,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 			$sql->connect();
 
 			// check if table exists
-			$tableExists = $helper->tableExists(tables::coreResource, $sql);
+			$tableExists = $helper->tableExists(Yamp_Core_Helper_Tables::coreResource, $sql);
 		}
 		
 		// loop models
@@ -78,7 +78,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 							if( $tableExists )
 							{
 								$result = $sql->select("setup_version")
-											   ->from("{DB}.{PRE}" . tables::coreResource)
+											   ->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 											   ->where("name = ?", $xml->getName())
 											   ->limit(1)
 											   ->run()
@@ -133,7 +133,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 		
 		if( $available )
 		{
-			$tableExists = $this->getHelper("database")->tableExists(tables::coreResource);
+			$tableExists = $this->getHelper("database")->tableExists(Yamp_Core_Helper_Tables::coreResource);
 		}
 		
 		$loaded = array();
@@ -180,7 +180,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 									{
 										$result = $this->_getConnection()
 													   ->select("setup_version")
-													   ->from("{DB}.{PRE}" . tables::coreResource)
+													   ->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 													   ->where("name = ?", $xml->getName())
 													   ->limit(1)
 													   ->run()

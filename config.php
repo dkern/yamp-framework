@@ -1,52 +1,12 @@
 <?php
 class config
 {
-	/**
-	 * enable debug mode
-	 * will overwrite yamp::setDebugMode(false) on true
-	 * @var boolean
-	 */
-	const debug = false;
+	/*
+	** MySQL Configuration
+	*/
 
-	/**
-	 * base system url
-	 * @var string
-	 */
-	const baseUrl = "/";
-	
-	/**
-	 * default system logging file in /var/log
-	 * @var string
-	 */
-	const defaultLogFile = "system.log";
-	
-	/**
-	 * enable module caching
-	 * @var boolean
-	 */
-	const useSystemCache = true;
-	
-	/**
-	 * lifetime of the module cache in seconds (by default one day)
-	 * @var integer
-	 */
-	const systemCacheLifetime = 86400;
-	
-	/**
-	 * if enabled session data will not stored in database
-	 * @var boolean
-	 */
-	const sessionForceFile = false;
 
-	/**
-	 * if enabled cache data will not stored in database
-	 * @var boolean
-	 */
-	const cacheForceFile = false;
-}
 
-class mysqlconfig
-{
 	/**
 	 * if true the framework tries to access database
 	 * @var boolean
@@ -64,7 +24,7 @@ class mysqlconfig
 	 * @var boolean
 	 */
 	const mysqli = false;
-	
+
 	/**
 	 * database hostname
 	 * @var string
@@ -76,25 +36,25 @@ class mysqlconfig
 	 * @var string
 	 */
 	const port = "3306";
-	
+
 	/**
 	 * database username
 	 * @var string
 	 */
 	const username = "root";
-	
+
 	/**
 	 * password to access the database
 	 * @var string
 	 */
 	const password = "";
-	
+
 	/**
 	 * database to select
 	 * @var string
 	 */
 	const database = "yamp";
-	
+
 	/**
 	 * table name prefix
 	 * only necessary when you want to use prefix replace
@@ -106,32 +66,56 @@ class mysqlconfig
 	 * verbose on mysql error
 	 * @var boolean
 	 */
-	const verbose = true;
-}
+	const verbose = false;
 
-class tables
-{
+
+
+	/*
+	** General Configuration
+	*/
+
+
+
 	/**
-	 * core configuration table name
+	 * enable debug mode
+	 * will overwrite yamp::setDebugMode(false) on true
+	 * @var boolean
+	 */
+	const debug = false;
+
+	/**
+	 * base system url
 	 * @var string
 	 */
-	const coreConfigData = "core_config_data";
-	
+	const baseUrl = "/";
+
 	/**
-	 * core cache table name
+	 * default system logging file in /var/log
 	 * @var string
 	 */
-	const coreCache = "core_cache";
-	
+	const defaultLogFile = "system.log";
+
 	/**
-	 * core session table name
-	 * @var string
+	 * enable module caching
+	 * @var boolean
 	 */
-	const coreSession = "core_session";
-	
+	const useSystemCache = true;
+
 	/**
-	 * core resource table name
-	 * @var string
+	 * lifetime of the module cache in seconds (by default one day)
+	 * @var integer
 	 */
-	const coreResource = "core_resource";
+	const systemCacheLifetime = 86400;
+
+	/**
+	 * if enabled session data will not stored in database
+	 * @var boolean
+	 */
+	const sessionForceFile = false;
+
+	/**
+	 * if enabled cache data will not stored in database
+	 * @var boolean
+	 */
+	const cacheForceFile = false;
 }

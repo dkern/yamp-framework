@@ -47,7 +47,7 @@ class Yamp_Setup_Helper_Data extends Yamp_Core_Helper_Abstract
 								// update version numbers
 								$module["setup"]["installed"] = $module["setup"]["version"];
 	
-								$sql->insert("{DB}.{PRE}" . tables::coreResource)
+								$sql->insert("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 									->fields("name", "setup_version")
 									->values($module["name"], $module["setup"]["version"])
 									->onDuplicate("setup_version = VALUES(setup_version)")
@@ -63,7 +63,7 @@ class Yamp_Setup_Helper_Data extends Yamp_Core_Helper_Abstract
 						if( $module["name"]== "Yamp_Setup" )
 						{
 							$result = $sql->select("setup_version")
-										  ->from("{DB}.{PRE}" . tables::coreResource)
+										  ->from("{DB}.{PRE}" . Yamp_Core_Helper_Tables::coreResource)
 										  ->where("name = ?", "Yamp_Setup")
 										  ->run()
 										  ->fetch();
