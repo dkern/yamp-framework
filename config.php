@@ -58,12 +58,24 @@ class mysqlconfig
 	 * @var boolean
 	 */
 	const persistent = true;
+
+	/**
+	 * use mysqli instead of mysql
+	 * @var boolean
+	 */
+	const mysqli = false;
 	
 	/**
 	 * database hostname
 	 * @var string
 	 */
 	const hostname = "localhost";
+
+	/**
+	 * database hostname
+	 * @var string
+	 */
+	const port = "3306";
 	
 	/**
 	 * database username
@@ -89,6 +101,12 @@ class mysqlconfig
 	 * @var string
 	 */
 	const prefix   = "";
+
+	/**
+	 * verbose on mysql error
+	 * @var boolean
+	 */
+	const verbose = true;
 }
 
 class tables

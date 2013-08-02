@@ -88,7 +88,7 @@ class Yamp_Database_Helper_Data extends Yamp_Core_Helper_Abstract
 					  ->from("information_schema.tables")
 					  ->where("table_schema = ?", mysqlconfig::database)
 					  ->where("table_name = ?", $table)
-					  ->run(false)
+					  ->run()
 					  ->fetch();
 		
 		if( count($result) == 1 )

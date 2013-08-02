@@ -15,7 +15,7 @@ class Yamp_Setup_Model_Setup extends Yamp_Core_Model_Abstract
 	{
 		Profiler::start("Yamp_Setup_Model_Setup::checkIsSystemReady");
 		
-		$this->sql = $this->getConnection()->getRead();
+		$this->sql = $this->getConnection()->getWrite();
 		
 		// check if database is available
 		if( $this->getHelper("database")->databaseAvailable() )
@@ -32,7 +32,7 @@ class Yamp_Setup_Model_Setup extends Yamp_Core_Model_Abstract
 										->from("{DB}.{PRE}" . tables::coreResource)
 										->where("name = ?", $config["name"])
 										->limit(1)
-										->run(false)
+										->run()
 										->fetch();
 					
 					if( count($result) == 1 )

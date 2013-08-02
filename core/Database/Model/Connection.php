@@ -14,7 +14,7 @@ class Yamp_Database_Model_Connection
 		if( is_null($model) )
 		{
 			$model = yamp::getModel("database/database");
-			$model->setType("read");
+			$model->setConnectionType(Yamp_Database_Model_Database::CONNECTION_TYPE_READ);
 			
 			if( !yamp::isDebugMode() )
 			{

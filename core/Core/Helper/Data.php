@@ -81,7 +81,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 											   ->from("{DB}.{PRE}" . tables::coreResource)
 											   ->where("name = ?", $xml->getName())
 											   ->limit(1)
-											   ->run(false)
+											   ->run()
 											   ->fetch();
 								
 								if( count($result) == 1 )
@@ -183,7 +183,7 @@ class Yamp_Core_Helper_Data extends Yamp_Core_Helper_Abstract
 													   ->from("{DB}.{PRE}" . tables::coreResource)
 													   ->where("name = ?", $xml->getName())
 													   ->limit(1)
-													   ->run(false)
+													   ->run()
 													   ->fetch();
 										
 										if( count($result) == 1 )

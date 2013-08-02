@@ -65,7 +65,7 @@ class Yamp_Setup_Helper_Data extends Yamp_Core_Helper_Abstract
 							$result = $sql->select("setup_version")
 										  ->from("{DB}.{PRE}" . tables::coreResource)
 										  ->where("name = ?", "Yamp_Setup")
-										  ->run(false)
+										  ->run()
 										  ->fetch();
 							
 							if( count($result) == 1 )

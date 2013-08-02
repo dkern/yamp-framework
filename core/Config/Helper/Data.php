@@ -41,7 +41,7 @@ class Yamp_Config_Helper_Data extends Yamp_Core_Model_Object
 						   ->from("{DB}.{PRE}" . tables::coreConfigData)
 						   ->where("code = ?", $code)
 						   ->limit(1)
-						   ->run(false)
+						   ->run()
 						   ->fetch();
 			
 			if( count($result) == 1 )
@@ -74,7 +74,7 @@ class Yamp_Config_Helper_Data extends Yamp_Core_Model_Object
 						   ->fields("code", "value")
 						   ->values($code, $value)
 						   ->onDuplicate("value = VALUES(value)")
-						   ->run();
+						   ->run(true);
 			
 			if( $result )
 			{

@@ -67,7 +67,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 							->from("{DB}.{PRE}" . tables::coreSession)
 							->where("session_id = ?", $sessionId)
 							->limit(1)
-							->run(false)
+							->run()
 							->fetch();
 		
 		if( count($result) == 1 )
@@ -97,9 +97,9 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 								->fields("session_id", "session_time", "session_data")
 								->values($sessionId, time(), $data)
 								->onDuplicate("session_time = VALUES(session_time), session_data = VALUES(session_data)")
-								->run();
+								->run(true);
 			
-			if( $result)
+			if( $result )
 			{
 				return Profiler::stop("Yamp_Session_Model_Handler_Database::write", true);
 			}
@@ -120,7 +120,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 		$result = $this->sql->delete("{DB}.{PRE}" . tables::coreSession)
 							->where("session_id = ?", $sessionId)
 							->limit(1)
-							->run();
+							->run(true);
 		
 		if( $result )
 		{
@@ -141,7 +141,7 @@ class Yamp_Session_Model_Handler_Database extends Yamp_Core_Helper_Abstract impl
 		
 		$result = $this->sql->delete("{DB}.{PRE}" . tables::coreSession)
 							->where("session_time + " . $lifetime . " <= ?", time())
-							->run();
+							->run(true);
 
 		if( $result )
 		{

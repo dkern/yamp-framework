@@ -50,17 +50,18 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 							->where("cache_key = ?", $key)
 							->where("ident = ?", $identifier)
 							->limit(1)
-							->run(false)
+							->run()
 							->fetch();
 		
-		$query = $this->sql->insertIgnore("{DB}.{PRE}" . tables::coreCache)
+		$query = $this->sql->insert("{DB}.{PRE}" . tables::coreCache)
+						   ->ignore()
 						   ->fields("cache_key", "ident", "timestamp", "lifetime", "content")
 						   ->values($key, $identifier, time(), $lifetime, $serialized);
 		
 		// no cache in database found
 		if( count($result) == 0 )
 		{
-			if( $query->run() )
+			if( $query->run(true) )
 			{
 				return Profiler::stop("Yamp_Cache_Model_Database::setCache", true);
 			}
@@ -77,7 +78,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 				// override cached data
 				if( $override )
 				{
-					if( $query->run() )
+					if( $query->run(true) )
 					{
 						return Profiler::stop("Yamp_Cache_Model_Database::setCache", true);
 					}
@@ -87,7 +88,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 			// cached data too old
 			else
 			{
-				if( $query->run() )
+				if( $query->run(true) )
 				{
 					return Profiler::stop("Yamp_Cache_Model_Database::setCache", true);
 				}
@@ -112,7 +113,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 							->from("{DB}.{PRE}" . tables::coreCache)
 							->where("cache_key = ?", $key)
 							->where("ident = ?", $identifier)
-							->run(false)
+							->run()
 							->fetch();
 		
 		// entry found
@@ -150,7 +151,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 			$query->where("ident = ?", $identifier);
 		}
 		
-		if( $query->run() )
+		if( $query->run(true) )
 		{
 			return Profiler::stop("Yamp_Cache_Model_Database::removeCache", true);
 		}
@@ -185,7 +186,7 @@ class Yamp_Cache_Model_Database extends Yamp_Core_Model_Abstract implements Yamp
 		$query = $this->sql->delete("{DB}.{PRE}" . tables::coreCache)
 						   ->where(time() . " - timestamp > lifetime");
 		
-		if( $query->run() )
+		if( $query->run(true) )
 		{
 			return Profiler::stop("Yamp_Cache_Model_Database::cleanup", true);
 		}
